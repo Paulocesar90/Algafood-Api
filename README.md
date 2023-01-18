@@ -1443,7 +1443,7 @@ Comandos de ajuda  `docker help`, `docker container help` e
 
 #### Arquitetura do Docker
 Docker usa uma arquitetura cliente/servidor, onde o **Client** é o terminal, a forma nativa de geranciar containers através de comandos.
-**Docker Host** é a máquina onde está instalado o Docker, na qual será executada o Docker. **Docker Daemon* é um software em background que gerencia os objetos do docker, como imagens, containers. Ele possui uma reset API para permitir gerenciamento. Client e DOcker Host podem estar em máquinas diferentes.
+**Docker Host** é a máquina onde está instalado o Docker, na qual será executada o Docker. **Docker Daemon* é um software em background que gerencia os objetos do docker, como imagens, containers. Ele possui uma reset API para permitir gerenciamento. Client e Docker Host podem estar em máquinas diferentes.
 **Docker Registry** local para armazenamento de imagens. Caso a imagem não exista localmente o docker local irá baixá-la do Docker Hub. Docker Hub é o registry padrão, repositório em nuvem para compartilhar imagens de containers de forma pública ou privada. 
 As tags no Docker Hub (https://hub.docker.com/) podem ser utilizadas logo após o nome da imagem, por exemplo `docker container run ubuntu:22.04`.
 
@@ -1539,7 +1539,7 @@ Para verificar isso podemos instanciar um container com distribuição Linux Alp
 Um proxy reverso fica na comunicação entre um cliente e um grupo de servidores, onde estes ficam atrás de um mesmo nome:porta, aparecendo como se fossem uma única unidade.
 Pode usar uma técnica chamada DNS de revezamento para direcionar solicitações por meio de uma lista rotativa de servidores internos. O <b>Nginx</b> é um servidor Http que realiza proxy reverso.
 
-Para utilizá-lo, configuramos o Dockerfile principal para instanciar um container com a imagem Nginx, utilizando as configurações contidas nos arquivos na pasta [./nginx](/algafood-api/nginx). Dessa maneira a API fica acessível na **porta 80**.
+Para utilizá-lo, configuramos o Dockerfile principal para instanciar um container com a imagem Nginx, utilizando as configurações contidas nos arquivos na pasta [./nginx](https://github.com/Paulocesar90/Algafood-Api/tree/main/nginx). Dessa maneira a API fica acessível na **porta 80**.
 
 #### Container Redis
 Porém fluxo Authorization Code Grant Type não funciona com esta configuração, pois o Authorization Server utiliza o Http Session na memória do servidor para funcionar, ou seja, fica isolada em um container específico.

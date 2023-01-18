@@ -867,7 +867,7 @@ O Postman não consegue reproduzir esse comportamento. Extensão `Talent API Tes
  		.cacheControl(CacheControl.maxAge(60, TimeUnit.SECONDS))
 
 ```
-Navegador indica que o dado foi recuperado do cache local: ![cache]([/algafood-api/images/cache.png](https://github.com/Paulocesar90/Algafood-Api/blob/main/imagens/cache.png))
+Navegador indica que o dado foi recuperado do cache local: ![cache](https://github.com/Paulocesar90/Algafood-Api/blob/main/imagens/cache.png)
 
 
 #### Validações e requisições condicionais com Etags

@@ -1324,7 +1324,7 @@ Com a utilização da chave simétrica o Resource Server fica em posse da key de
 
 Para utilização de chave assimétrica, há uma chave privada para a criação de novos tokens e outra pública para verificação de autenticidade. Aqui utilizaremos o algoritmo RS256. Assim não é possível criar tokens com a chave pública.
 
-<img src="ahttps://github.com/Paulocesar90/Algafood-Api/blob/main/imagens/chave-assimetrica.png" width="450"/>
+<img src="https://github.com/Paulocesar90/Algafood-Api/blob/main/imagens/chave-assimetrica.png" width="450"/>
 
 Para **criar um par de chaves** é possível utilizar a ferramenta utilitária proveniente do jdk chamada `keytool`, através do prompt de comando.
 Gerando um arquivo JKS com um par de chaves:

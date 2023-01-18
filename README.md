@@ -885,7 +885,7 @@ Caso a informação esteja atualizada o servidor retorna `304 - Not Modified`, s
     }
 ```
 Navegador exibindo Etag recebida: <br>
- ![etag](/algafood-api/images/etag.png)
+ ![etag](https://github.com/Paulocesar90/Algafood-Api/blob/main/imagens/etag.png)
 
 #### Diretivas de Cache-Control na resposta HTTP
 
@@ -994,7 +994,7 @@ Ao enviar um arquivo para o endpoint de salvar imagem de um produto verifica-se 
 
 O acrônimo HATEOAS vem de Hypermedia As the Engine Of Application State, a API passa a fornecer links que indicarão aos clientes como navegar através dos seus recursos. ([artigo](https://www.treinaweb.com.br/blog/o-que-e-hateoas))
 Exemplo:
-![exemplo de resposta hateoas](/algafood-api/images/exemplo-hateoas.png)
+![exemplo de resposta hateoas](https://github.com/Paulocesar90/Algafood-Api/blob/main/imagens/exemplo-hateoas.png)
 
 #### Discoverability vs HATEOAS
 Discoverability é a capacidade que a API dá aos consumidores de navegar por recursos sem conhecer previamente as URIs. Discoverability é um conceito, já o HATEOAS é um componente do REST que torna isso possível, através da inclusão de hypermedia (links) nas respostas através de um ponto de entrada da API (root entry point).
@@ -1153,7 +1153,7 @@ Permitindo que aplicações terceiras tem acesso limitado a uma API. É um conju
  
 No cenário de portaria de um prédio, o `Authorization Server` seria o porteiro. O `Resource Owner` seria o proprietário de um apartamento. O `Resource Server` é o recurso no interior do apartamento, uma compartimento. E o `Client` é uma visita, solicitando acesso a entrar no apartamento e pegar um recurso. Assim o Authorization Server solicita permissão ao Resource Owner para que o Client acesse o recurso no Resource Server. Veja o Authorization Code Flow (este é um dos fluxos possíveis):
 
-![Authorization Code Flow](algafood-api/images/authorization-flow.png)
+![Authorization Code Flow](https://github.com/Paulocesar90/Algafood-Api/blob/main/imagens/authorization-flow-pkce.png)
 
 #### Soluções Spring OAuth 2
 [Spring Security OAuth](https://spring.io/projects/spring-security-oauth) dá suporte para implementar tanto o Resource Server quanto o Authorization Server. Estes podem estar em projetos diferentes até.<br>
@@ -1170,14 +1170,14 @@ Logo o Resource Server será desenvolvido utilizando o Spring Security e o Autho
 Fluxo `Resource Owner Password Credentials Grant` é uma forma de obter o token de acesso a partir de um usuário e senha, o Client envia o usuário e senha para o Authorization Server, e este emite um token de acesso. É um fluxo que deve ser utilizado apenas para aplicações desenvolvidas pelo grupo proprietário. É um risco para o usuário fornecer seus dados de acesso para clients desenvolvidos por empresas terceiras.<br>
 Hoje ele é [não aconselhável](https://www.scottbrady91.com/OAuth/Why-the-Resource-Owner-Password-Credentials-Grant-Type-is-not-Authentication-nor-Suitable-for-Modern-Applications) pois delega ao cliente a responsabilidade de manipular as credenciais dos seus usuários.
 
-![Password Grant Flow](algafood-api/images/password-credentials.png)
+![Password Grant Flow](https://github.com/Paulocesar90/Algafood-Api/blob/main/imagens/password-credentials.png)
 
 ##### Client Credentials Grant
 Fluxo voltado para a utilização de uma aplicação back-end atuando como cliente de uma API.
 O token de acesso não é uma delegação de acesso de um Resource Owner, ela representa uma chave de acesso em nome do Client.
 Nesse fluxo não deve haver Refresh Token.
 
-![Password Grant Flow](algafood-api/images/client_credentials.png)
+![Password Grant Flow](https://github.com/Paulocesar90/Algafood-Api/blob/main/imagens/client_credentials.png)
 
 ##### Authorization Code Grant Type
 Uri de redirecionamento deve estar cadastrada no Authorization Server. Authorization Server exibe formulário de login para o Resource Owner autenticar e autorizar o acesso aos recursos. É ideal para a integração de Front-end com o Back-end.
@@ -1208,7 +1208,7 @@ O cliente então envia o código de autorização recebido e o `Code Verifier`, 
 Quem decide o método de verificação do Code Challenge é o cliente, sendo eles s256 (SHA256, recomendado) ou Plain (texto comum). <br>
 O ideal seria dar opção ao usuário, se usar o PKCE não seria necessário autenticar o usuário com o header Authorization Basic, caso contrario seria necessário autenticar o usuário.
 
-![Authorization Code PKCE](algafood-api/images/authorization-flow-pkce.png)
+![Authorization Code PKCE](https://github.com/Paulocesar90/Algafood-Api/blob/main/imagens/authorization-flow-pkce.png)
 
 [Implementação de PKCE para Spring Security OAuth2](https://gist.github.com/paulo/daca4f4790b5b18fed800b83747127ca)
 
@@ -1220,7 +1220,7 @@ Requisição para receber code: (GET - navegador) `http://localhost:8081/oauth/a
 
 ##### Implicit Grant
 Authorization Server replica o fluxo do Authorization Code Grant Type, porém não retorna um código para obtenção do access token, retorna diretamente o access token.
-O uso desse fluxo é desencorajado, pois retornar o access token na URL gera um risco de segurança, é um fluxo legado. É possível ver mais detalhes do fluxo na [imagem](algafood-api/images/implicit_flow_grant.png).
+O uso desse fluxo é desencorajado, pois retornar o access token na URL gera um risco de segurança, é um fluxo legado. É possível ver mais detalhes do fluxo na [imagem](https://github.com/Paulocesar90/Algafood-Api/blob/main/imagens/implicit_flow_grant.png).
 
 Para a url acessada no navegador: `http://localhost:8081/oauth/authorize?response_type=token&client_id=webadmin&state=abc&redirect_uri=http://aplicacao-cliente` <br>
 Recebemos a resposta com o token: `http://aplicacao-cliente/#access_token=c0b6cfa1-aad1-491c-9e52-f723e6186c73&token_type=bearer&state=abc&expires_in=43199&scope=read%20write`
@@ -1251,7 +1251,7 @@ Tipo de cliente:
  - Confiável: aplicação própria, a mesma empresa desenvolveu.
  - Não Confiável: aplicação de terceiro, cujos reais objetivos são desconhecidos.
 
-![OAuth2 Fluxo](algafood-api/images/oauth2-fluxo.png)
+![OAuth2 Fluxo](https://github.com/Paulocesar90/Algafood-Api/blob/main/imagens/oauth2-fluxo.png)
 
 *Obs.*: Cliente sem usuários finais seria uma aplicação back-end se comportando como cliente de uma API.
 
@@ -1324,7 +1324,7 @@ Com a utilização da chave simétrica o Resource Server fica em posse da key de
 
 Para utilização de chave assimétrica, há uma chave privada para a criação de novos tokens e outra pública para verificação de autenticidade. Aqui utilizaremos o algoritmo RS256. Assim não é possível criar tokens com a chave pública.
 
-<img src="algafood-api/images/chave-assimetrica.png" width="450"/>
+<img src="ahttps://github.com/Paulocesar90/Algafood-Api/blob/main/imagens/chave-assimetrica.png" width="450"/>
 
 Para **criar um par de chaves** é possível utilizar a ferramenta utilitária proveniente do jdk chamada `keytool`, através do prompt de comando.
 Gerando um arquivo JKS com um par de chaves:
@@ -1394,7 +1394,7 @@ Um container docker não é uma máquina virtual, não levanta um sistema operac
 
 **Imagem** - Template em camadas somente leitura que contém bibliotecas e configurações podendo ser utilizada por um ou mais containers.
 
-![Containers x Máquina Virtual](/algafood-api/images/maquina-virtualxcontainer.png)
+![Containers x Máquina Virtual](https://github.com/Paulocesar90/Algafood-Api/blob/main/imagens/maquina-virtualxcontainer.png)
 
 **Por que usar Docker?**
  - Alto nível de portabilidade
@@ -1447,7 +1447,7 @@ Docker usa uma arquitetura cliente/servidor, onde o **Client** é o terminal, a 
 **Docker Registry** local para armazenamento de imagens. Caso a imagem não exista localmente o docker local irá baixá-la do Docker Hub. Docker Hub é o registry padrão, repositório em nuvem para compartilhar imagens de containers de forma pública ou privada. 
 As tags no Docker Hub (https://hub.docker.com/) podem ser utilizadas logo após o nome da imagem, por exemplo `docker container run ubuntu:22.04`.
 
-![Arquitetura do Docker](/algafood-api/images/arquitetura-docker.png)
+![Arquitetura do Docker](https://github.com/Paulocesar90/Algafood-Api/blob/main/imagens/arquitetura-docker.png)
 
 ### Construindo a imagem da aplicação com Dockerfile
 Gerar `.jar` na pasta target da aplicação, executando na pasta algafood-api o comando: `mvn clean package`.
@@ -1510,7 +1510,7 @@ A seguinte linha no docker-compose substitui o `CMD` no Dockerfile:
 ### Escalando um serviço com Docker Compose | Balanceamento de carga
 Load Balancer é um software que realiza o balanceamento de carga, distribuindo requisições entre containers. Adiciona segurança caso ocorra problema em um container, outros permanecem em execução. Possibilita *Zero Downtime*, tempo em que um sistema fica inoperacional, quando necessário realizar alguma atualização, um container permanece em execução enquanto outro é atualizado.
 
-![Load Balancer](algafood-api/images/load-balance.png)
+![Load Balancer](https://github.com/Paulocesar90/Algafood-Api/blob/main/imagens/load-balance.png)
 
  - Inicializando duas instâncias de um container:
 ```yml
@@ -1578,7 +1578,7 @@ Uma [zona de disponibilidade (AZ)](https://aws.amazon.com/pt/about-aws/global-in
 
 Depois de criar uma VPC, você pode adicionar uma ou mais [sub-redes ou subnets](https://docs.aws.amazon.com/pt_br/vpc/latest/userguide/VPC_Subnets.html#vpc-subnet-basics) em cada zona de disponibilidade. Uma sub-rede é uma gama de endereços IP na VPC.
 
-![AWS conceitos](algafood-api/images/aws-conceitos.png)
+![AWS conceitos](https://github.com/Paulocesar90/Algafood-Api/blob/main/imagens/aws-conceitos.png)
 
 No AWS Console é possível gerenciar os gastos clicando no nome de usuário, "Biling Dashboard". No menu lateral esquerdo em "Preferências de Faturamento" é possível habilitar as opções para receber alertas de gastos. Em "Budgets" podemos configurar um orçamento para receber um alerta quando os custos estiverem próximos ao limite estabelecido.
 
@@ -1609,7 +1609,7 @@ Dentro do container cliente redis: `auth <password>`, para autenticação.
 #### Amazon Elastic Container Service
 É um serviço gerenciado de orquestração de coitainers. Necessário configurar um cluster (conjunto de resursos computacionais, servidores) para executar os containers, há dois tipos de clusters, clusters de instância do EC2 e clusters do Fargate. Com o EC2 a cobrança é realizada pelas máquinas virtuais, necessário realizar o gerenciamento dos servidores. Já pelo Fargate o valor é por tempo de execução e recursos do container, mecanismo de execução dos containers sem servidores, gerenciado pela Amazon. O item selecionado no curso foi o Fargate, porém não está incluso no nível gratuito.
 
-![ECS Diagrama](algafood-api/images/aws-ecs-diagram.png)
+![ECS Diagrama](https://github.com/Paulocesar90/Algafood-Api/blob/main/imagens/aws-ecs-diagram.png)
 
 Acessar serviço *ECS*, selecionar `Task Definition`, que descreve configurações de um ou mais containers, como a imagem utilizada, mapeamento de portas, variáveis de ambiente, etc. Em *Task memory*, selecionar menor memória necessária pois é cobrada. Uma task definition pode ter um ou mais containers. Adicionamos um container, com o nome `nginx-container`, com imagem *nginx:1.19.8-alpine*. Em *Port Mapping* inserimos a porta que desejamos expor: 80. Selecionamos criar container e criar Task Definition. Nesse momento o container ainda não está em execução, uma *task* é uma instância em execução de uma *task definition*, instância de um container em execução, para executá-la é necessário um cluster.
 
@@ -1617,11 +1617,11 @@ Acessar no menu lateral `Amazon ECS > Cluster`, create cluster, Network Only. EM
 
 Ao visualizar um cluster em execução vemos a tag "Services" o item "Desired tasks" onde consta o número desejado de task, ou seja, de containers em eexecução. <b>Para parar um container</b> selecione o service, clique em `Update`, e insira "Number of task" valor zero (0), pois se o usuário parar a task e o valor desejado (number of task) for 1, por exemplo, o próprio ECS irá levantar novamente para ficar com uma instância sendo executada.
 
-![AWS Service](algafood-api/images/aws-cluster-service.png)
+![AWS Service](https://github.com/Paulocesar90/Algafood-Api/blob/main/imagens/aws-cluster-service.png)
 
 Caso a porta esteja padrão TCP 80, altere para Custom TCP e insira a porta desejada, 8080, por exemplo.
 
-![Configurando porta no Security Group](algafood-api/images/aws-security-group-algafood-api.png)
+![Configurando porta no Security Group](https://github.com/Paulocesar90/Algafood-Api/blob/main/imagens/aws-security-group-food-api.png)
 
 #### Amazon Elastic Container Registry
 Para utilizar uma imagem é necessário tê-la em algum Registry. Para isso será utilizado o [Amazon Elastic Container Registry (ECR)](https://aws.amazon.com/pt/ecr/). É possível utilizar o Docker Hub, porém espera-se que a integração com serviços da Amazon e gerenciamento sejam mais simples com o ECR.
@@ -1649,7 +1649,7 @@ Ao criar um parâmetro vamos editar a `ECS/Task Definition`, inserir a key da va
 
 Criamos uma Task Definition para o container de algaFood API. Adicionamos a imagem `695220093988.dkr.ecr.us-east-2.amazonaws.com/algafood-api`. Em *Port mappings* inserimos 8080. Deve ser inserida também a variável `SPRING_PROFILES_ACTIVE = production`.
 
-![Variáveis de ambiente no ECS](algafood-api/images/ecs-environment-variables.png)
+![Variáveis de ambiente no ECS](https://github.com/Paulocesar90/Algafood-Api/blob/main/imagens/ecs-environment-variables.png)
 
 ##### Habilitando acesso aos parâmetros
 Acessando clusters, criamos um novo service para englobar a Task Definition do algaFood API. `AccessDeniedException` foi recebido pois o service ECS não tinha permissão para acessar o recurso `Parameters Store`.
@@ -1669,7 +1669,7 @@ O balanceamento de carga é importante porque precisamos distribuir o processame
 
 [Amazon Elastic Load Balancing](https://aws.amazon.com/pt/elasticloadbalancing/) é uma funcionalidade do produto <b>EC2</b>. ELB é um único ponto de contato com os clientes e distribui as requisições para os vários containers através de um algoritmo. <b>Listeners</b> são processos que aguardam as requisições de determinado protocolo e porta, neles estão Rules, regras que definem o <b>Target Group</b> para qual será roteada a requisição. O Target Group envia para um container saudável, apto a responder, essa verificação é feita através da configuração *Health Check*, podemos configurar um endpoint para essa verificação.
 
-![ELB](algafood-api/images/aws-elastic-load-balancing.png)
+![ELB](https://github.com/Paulocesar90/Algafood-Api/blob/main/imagens/aws-elastic-load-balancing.png)
 
 ##### Configurando Load Balancer na Amazon
 <b>EC2 > Load Balancers > Criar novo</b>. Como nossas requisições utilizam o HTTP selecionamos "Application Load Balancer". Como nome inserimos "algafood-lb". *Scheme* selecionamos *Internet-facing* pois desejamos que os load balancer esteja exposto na internet para os clientes da API. Em "Listeners and routing" deixamos HTTP 80 como padrão. Selecionamos pelo menos duas zonas de disponibilidade em "Network mapping" para habilitar o Multi-AZ.
@@ -1700,12 +1700,12 @@ A instituição de reserva de nomes de Domínios (DNSs) selecionada foi `Registr
 Após o domínio registrado é necessário um serviço DNS, é o responsável por converter nomes de sites em IPs numéricos. Um desses produtos é o `AWS Route 53`, o Registro.br tbm possui esta funcionalidade.
 Na página de configuração do domínio no registro.br, selecionamos "Editar zona" > "Nova entrada", e adicionamos o Ip do Load Balancer da AWS. Na configuração inicial deve ser mais rápida a criação, para alteração pode demorar dias:
 
-![Configuração do DNS no RegistroBr para Load Balancer DNS](algafood-api/images/dns-registro-br.png)
+![Configuração do DNS no RegistroBr para Load Balancer DNS](https://github.com/Paulocesar90/Algafood-Api/blob/main/imagens/dns-registro-br.png)
  Já podemos acessar as requests via Postman através do DNS.
  Vamos retirar o acesso pelo ip do Load Balancer. Para isso acessamos EC2 > LoadBalancer > Listeners > Visualizar/editar regras > Adicionar nova regra. EM *"Host header"* inserimos o dns (p.e "algafood.com.br"), *"Forward to"* target group do load Balancer "algafood-api-service-tg".
  E a regra anterior alteramos para retornar 503, removendo o acesso que não utilize o DNS.
 
-![Acesso via DNS no Load Balancer](algafood-api/images/load-balancer-acesso-via-dns.png)
+![Acesso via DNS no Load Balancer](https://github.com/Paulocesar90/Algafood-Api/blob/main/imagens/load-balancer-acesso-via-dns.png)
 
 *Obs.: Não removemos o acesso via DNS do Load Balancer pois não adquirimos um DNS privado.*
 
@@ -1725,7 +1725,7 @@ Editar o security group de algafood-lb-sg, editamos a regra de entrada para perm
 
 <b>Ajuste no HATEOAS</b>
 
-![Fluxo básico de comunicação](algafood-api/images/header-protocolo-load-balancer.png)
+![Fluxo básico de comunicação](https://github.com/Paulocesar90/Algafood-Api/blob/main/imagens/header-protocolo-load-balancer.png)
 
 Um problema provocado foram os links do HATEOAS sendo recebidos pelo consumidor sem https, por isso não funcionam. Apesar de o Load Balancer encaminhar ao container, através do header `X-Forwarded-Proto`, o protocolo HTTPS recebido pelo cliente, a aplicação não está configurada para retornar o protocolo recebido do cabeçalho nos links do HATEOAS. Então retorna o protocolo utilizado na comunicação entre Load Balancer e Container, que é HTTP.
 
@@ -1754,11 +1754,6 @@ Acessar Window > Preferences > Content Types. Para arquivos `.properties` seleci
 
 Sobrescrevendo propriedades (application.properties), clique com lado direito sobre o projeto no console (Boot Dashboard), Open Config, adicione a propriedade e o valor no bloco "Override properties".
 
-##### Intellij
-Inserindo profile: Clicar na seta ao lado do nome do executável, Editar as configurações de build (Edit Configurations), Modify Options, Add VM options, inserir "-Dspring.profiles.active=production".
-Outra forma seria, na mesma janela de configuração, adicionar a variável de ambiente `spring.profiles.active=production`.
-
-![Intellij Profiles](algafood-api/images/intellij-profiles.png)
 
 ##### MySql
 [Download](https://dev.mysql.com/downloads/mysql/).

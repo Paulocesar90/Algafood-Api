@@ -1210,7 +1210,7 @@ O ideal seria dar opção ao usuário, se usar o PKCE não seria necessário aut
 
 ![Authorization Code PKCE](https://github.com/Paulocesar90/Algafood-Api/blob/main/imagens/authorization-flow-pkce.png)
 
-[Implementação de PKCE para Spring Security OAuth2](https://gist.github.com/paulo/daca4f4790b5b18fed800b83747127ca)
+[Implementação de PKCE para Spring Security OAuth2](https://gist.github.com/thiagofa/daca4f4790b5b18fed800b83747127ca)
 
  - Exemplo 1:
 Requisição para receber code: (GET - navegador) `http://localhost:8081/oauth/authorize?response_type=code&client_id=foodanalytics&state=abc&redirect_uri=http://aplicacao-cliente&code_challenge=codeteste123&code_challenge_method=plain`

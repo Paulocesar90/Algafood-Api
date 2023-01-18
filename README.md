@@ -1355,7 +1355,7 @@ Para autenticação dos usuários em banco de dados é necessário enviar o pass
 Observação: No fluxo Client Credentials o cliente se autentica, porém o usuário final não, assim o token jwt não possui usuario_id, informação importante para verificações de segurança.
 
 ### Inserindo suporte na Documentação para OAuth2
-Na classe de configuração da documentação [SpringFoxConfig](algafood-api/src/main/java/com/algafood/core/springfox/SpringFoxConfig.java) foram adicionadas as configurações no docket:
+Na classe de configuração da documentação [SpringDocConfig](https://github.com/Paulocesar90/Algafood-Api/blob/main/src/main/java/com/algaworks/algafood/core/springdoc/SpringDocConfig.java) foram adicionadas as configurações no docket:
 
 ```java
  .securitySchemes(Arrays.asList(securityScheme()))
